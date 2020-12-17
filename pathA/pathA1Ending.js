@@ -3,6 +3,7 @@
 var spriteCharA_ID = "N";
 var spritecharB_ID = "T";
 var spritecharC_ID = "S";
+
 /*VARIABLES*/
 
 var speakerA = "Natsume";
