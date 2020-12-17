@@ -2,7 +2,7 @@
         var bg_path = "../assets/backgrounds/";
         var cg_path = "../assets/cgs/";
         var getUrl = window.location;
-        var devURL = getUrl.protocol + "//" + getUrl.host + "/";
+        var devURL = getUrl.protocol + "//" + getUrl.host + "/ntmgVN-dev";
         var assets = "/assets/";
         var dir = devURL + "/assets/sprites/"
         var char1tag = "N";
