@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="stylesheet" type="text/css" href="../css/site-interface.css" />
+    <link rel="stylesheet" type="text/css" href="../css/home.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="prologue.js"></script>
+    <script src="../scripts/loadImage.js"></script>
+    <script>
+		$( document ).ready(function() {
+        
+		$(".main_menu").click(function () {
+
+		$(".main_menu").toggleClass("open_menu close_menu");
+		$('.hide_menu').fadeToggle("slow", "linear");
+		$('.menu_overlay').toggleClass("menu_show");
+
+
+		});
+
+		$( ".cd" ).click(function() {
+		  $( "#credits_box" ).toggleClass("home_m_hide home_m_show");
+		});
+
+		 $( ".credit_back" ).click(function() {
+		  $( "#credits_box" ).toggleClass("home_m_hide home_m_show");
+		});
+
+
+
+		$( ".mp" ).click(function() {
+		  $( "#chapters_box" ).toggleClass("home_m_hide home_m_show");
+		});
+
+		 $( ".chapter_back" ).click(function() {
+		  $( "#chapters_box" ).toggleClass("home_m_hide home_m_show");
+		});
+
+
+		    $('.id').click(function() {
+
+		});
+
+		    $('.st').click(function() {
+		    $( "#story_log" ).toggleClass("home_m_hide home_m_show");
+
+		});
+
+		     $( ".story_back" ).click(function() {
+		  $( "#story_log" ).toggleClass("home_m_hide home_m_show");
+		});
+
+     /*   $(".arrows").one('click', function(e) {
+            var audio = document.getElementById('bgm');
+            audio.load();
+            audio.play();
+        });
+
+        const volume = document.querySelector("audio").volume; // 1
+
+         document.querySelector("audio").volume = 0.8;  // set volume to 50%
+
+*/
+            // this will disable dragging of all images
+          $("img").mousedown(function(e){
+               e.preventDefault()
+          });
+
+          // this will disable right-click on all images
+      /*    $("body").on("contextmenu",function(e){
+               return false;
+
+		});*/
+
+		});
+    </script>
+    <title>Natsumugi VN - Prologue</title>
+</head>
+
+<body>
+    <div style="width: 1300px;margin: auto;"><h1 data-brackets-id="5155">Natsumugi VN</h1></div>
+    <div id="background">
+        <div class="center_div">
+   <!--         <div id="location">
+                <span>Game Research Club</span>
+            </div>
+            <div id="story_log" class="home_m home_m_hide">
+                <div class="back_button story_back"></div>
+                <div id="story_content">
+                    <div class="story">
+                        <div class="story_title">Story Log</div>
+                        <div>
+                            <div id="story_div"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="credits_box" class="home_m home_m_hide">
+                <div class="back_button credit_back"></div>
+                <div id="credit_content">
+                    <div class="credit">
+                        <div class="credit_title">Credits</div>
+                        <table id="credits_table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <a href="http://twitter.com/ainekisaragi" target="_blank">
+                                            <div class="icon rai"></div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://twitter.com/improbabyeol" target="_blank">
+                                            <div class="icon byeol"></div>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="http://twitter.com/karipitan" target="_blank">
+                                            <div class="icon kari"></div>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Rai</td>
+                                    <td>Byeol</td>
+                                    <td>Kari</td>
+                                </tr>
+                                <tr>
+                                    <td>Programmer</td>
+                                    <td>Artist</td>
+                                    <td>Writer</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>This is #TeamSubacharBsu's submission for the	<a href="https://esomain.dreamwidth.org/" target="_blank">Enstars Shipping Olympics</a>.</p>
+                        <p>
+                            Please do not repost the art or reproduce the code and story anywhere.
+                            <br />Story and Menu Buttons and background music are from the game. Chibis are official anime art.
+                        </p>
+                        <p>BGM ♫: Yumenosaki Academy</p>
+                    </div>
+                </div>
+            </div>
+            <div id="chapters_box" class="home_m home_m_hide">
+                <div class="back_button chapter_back"></div>
+                <div id="chapter_content">
+                    <div class="chapter">
+                        <div class="chapter_title">Chapters</div>
+                        <table class="tg" style="table-layout: fixed; width: 550px">
+                            <tr>
+                                <td class="tg-0pky">
+                                    <div class="c_box">Swim Lesson #1</div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">
+                                    <span class="new">New!</span>
+
+                                    <div class="c_box"><a href="/chap2.html">Swim Lesson #2</a></div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">
+                                    <span class="new">New!</span>
+
+                                    <div class="c_box"><a href="/chap3.html">Swim Lesson #3</a></div>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="tg-0pky">
+                                    <span class="new">New!</span>
+
+                                    <div class="c_box"><a href="/chap4.html">Swim Lesson #4</a></div>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>-->
+            <!-- // SlideOut -->
+            <div class="handle">
+                <div class="tooltips">
+                    <img id="tab" src="../assets/storytab.png" />	<span class="tooltiptext">Toggle Textbox</span>
+                </div>
+            </div>
+            <div id="text-box">
+                <div id="toggle_text">
+                    <div class="left">
+                        <div class="back" style="display:none;">
+                            <img class="arrows a-back" src="../assets/chevback.png">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="forward">
+                            <img class="arrows a-next" src="../assets/chevnext.png">
+                        </div>
+                    </div>
+                    
+                    <div id="char-name2" style="display: none;">
+                        <div class="bubble" style="background:#5A5475;">
+                            <div id="char2"></div>
+                        </div>
+                    </div>
+                    <div id="char-name">
+                        <div class="bubble" style="background:#E74F52;">
+                            <div id="char"></div>
+                        </div>
+                    </div>
+                    <div id="arrowbox">
+                        <div id="textbox" class="dialogue"></div>
+                    </div>
+                    <div id="star">
+                        <img src="../assets/star.png" />
+                    </div>
+                </div>
+                <div id="sprites" class="ssprites">
+                    <div class="inner">
+                    <div id="render_a" class="rendd">
+                        <img id="rend-a" src="../assets/sprites/N1.png" />
+                    </div>
+                    <div id="render_b" class="rendd">
+                        <img id="rend-b" src="../assets/sprites/T1.png" />
+                    </div>
+                        </div>
+                </div>
+                <div id="sprite" class="ssprites">
+
+                    <div id="render">
+                        <img id="rend" src="" />
+                    </div>
+                </div>
+                <div class="cg_box">
+                    <div class="fade" style="background-color: black;display: none;height:100%;width: 100%"></div>                  
+                    <img id="cg" src="../assets/cgs/CG1.png" style="display:none;" />
+                </div>
+                <div style="/* width:25px; */bottom: 10px;right: 10px;/* float: right; */position: absolute;color: aliceblue"><span><strong>Autoplay:</strong></span> <input class="autoplay" type="checkbox"></div>            
+            </div>
+            <div id="end_chap" class="modal">
+              <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="m modal_title">Do you dare test your faTE?</div><span class="close"></span>
+                    <div class="m modal_text">                      
+                        <button class="modal-button a" >
+                        <a href="../pathA/">
+                                <span class="open" style="color:#3d85c6;">[Find a solution now.]</span>
+                        </a>   
+                        </button>
+                        <button class="modal-button a">
+                        <a href="../pathB/">
+                                <span class="open" style="color:#e06666;"> [He can wait. The fans cannot.]</span>
+                        </a>   
+                        </button></div>
+                    <div id="modal-field">
+ 
+                    </div>
+                </div>
+            </div>
+            <div class="menu_overlay"></div>
+        </div>
+  <!--      <div id="menu_bar">
+            <div class="hide_menu">
+                <div class="menutips">
+                    <img class="st" src="../assets/story_menu.png">	<span class="menutext menus">Story Log</span>
+                </div>
+                <div class="menutips">
+                    <img class="cd" src="../assets/card_menu.png">	<span class="menutext menus">Credits</span>
+                </div>
+                <div class="menutips">
+                    <img class="id" onclick="javascript:toggleSound();" src="../assets/idol_menu.png">	<span class="menutext menus">Music Toggle</span>
+                    <audio id="bgm" preload controls volume="0.2" loop style="display: none;">
+                        <source src="Yumenosaki%20Academy.mp3" type="audio/mpeg">
+                    </audio>
+
+
+                </div>
+                <div class="menutips">
+                    <img class="mp" src="../assets/map_menu.png">	<span class="menutext menub">Chapters</span>
+                </div>
+                <div class="menutips">
+                    <a href="/">
+                        <img class="hm menub" src="../assets/home_menu.png">
+                    </a>	<span class="menutext menub">Home</span>
+                </div>
+            </div>
+        </div>
+        <div class="main_menu open_menu"></div>-->
+        <div id="side_wrap">
+            <div id="sides">
+              <!--  <img style="float:left;" src="../assets/charBsume-chibi.png" />
+                <img style="float:right;" src="../assets/subaru-chibi.png">-->
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/visualnovelengine.js"></script>
+    <script type="text/javascript">
+		function toggleSound() {
+		  var audioElem = document.getElementById('bgm');
+		  if (audioElem.paused)
+		    audioElem.play();
+		  else
+		    audioElem.pause();
+		}
+    </script>
+</body>
+
+</html>
