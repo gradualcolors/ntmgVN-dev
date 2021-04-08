@@ -15,6 +15,7 @@ var charBcolor = "#5A5475";
 var charCcolor = "#6aa84f";
 //var bgs = ["BG_Game_Club_Room.jpg", "Pool_BG_1.jpg", "Pool_BG_2.jpg"];
 var cgs = ["CG1.jpg", "CG2.jpg", "CG3.jpg"];
+var bgs = ["../assets/backgrounds/BG1.png", "../assets/backgrounds/BG4.png"];
 /*STORY SCRIPT*/
 
 

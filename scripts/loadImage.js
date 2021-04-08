@@ -2,7 +2,7 @@
         var bg_path = "../assets/backgrounds/";
         var cg_path = "../assets/cgs/";
         var getUrl = window.location;
-        var devURL = getUrl.protocol + "//" + getUrl.host + "/";
+        var devURL = getUrl.protocol + "//" + getUrl.host + "/ntmgVN-dev";
         var assets = "/assets/";
         var dir = devURL + "/assets/sprites/"
         var char1tag = "N";
@@ -19,6 +19,7 @@
 		//imageSrcs.push("/bgs/BG_Game_Club_Room.jpg","/bgs/Pool_BG_1.jpg", "/bgs/Pool_BG_2.jpg");
 		//imageSrcs.push("../assets/rai.jpg","../assets/byeol.jpg", "../assets/kari.jpg");
 		//imageSrcs.push("/cgs/CG1.jpg");
+
 
 		for(var s = 1; s<=numofCharA; s++)
 		    {
@@ -38,13 +39,13 @@
 		        imageSrcs.push(charC);
 		    }
         
-        for(var b = 1; b<=bgsnum; b++)
+   /*     for(var b = 1; b<=bgsnum; b++)
 		    {
 		        var bg =  bg_path + "BG" +n+ ".png";
 		        imageSrcs.push(bg);
 		    }
-        
-
+        */
+        Array.prototype.push.apply(imageSrcs, bgs);
 		var images = [];
 
 		preloadImages(imageSrcs, images, loadModels);
