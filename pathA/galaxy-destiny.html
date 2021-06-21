@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../css/home.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <script src="pathA1Ending.js"></script>
+    <script src="pathA2Ending.js"></script>
     <script src="../scripts/loadImage.js"></script>
     <script>
 		$( document ).ready(function() {
@@ -240,7 +240,15 @@
                     <div class="fade" style="background-color: black;display: none;height:100%;width: 100%"></div>
                <img id="cg" src="../assets/cgs/CG1.png" style="display:none;" />
                 </div>
- <div style="/* width:25px; */bottom: 10px;right: 10px;/* float: right; */position: absolute;color: aliceblue"><span><strong>Autoplay:</strong></span> <input class="autoplay" type="checkbox"></div>   
+ <div style="/* width:25px; */bottom: 10px;right: 10px;/* float: right; */position: absolute;color: aliceblue">
+     <span><strong>Autoplay:</strong></span> <input class="autoplay" type="checkbox">&nbsp;
+    <span><strong>Speed:</strong></span> <select id="speed">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="MAX">MAX</option>
+     </select></div>   
             </div>
 			<div id="end_chap" class="modal">
 				<!-- Modal content -->
@@ -250,6 +258,26 @@
 					<div id="modal-field">
 						<button class="modal-button a" style="width:100%">	<span class="close">Close</span>
 						</button>
+					</div>
+				</div>
+			</div>
+            <div id="branch" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="m modal_title">Choose:</div>
+					<div class="m modal_text">                    
+                        <button class="modal-button a" >
+                        <a href="#" class="closeBranch">
+                                <span class="open" style="color:#3d85c6;">That's not true.</span>
+                        </a>   
+                        </button>
+                        <button class="modal-button a">
+                        <a href="../pathA/secret-ending.html">
+                                <span class="open" style="color:#3d85c6;">That's true.</span>
+                        </a>   
+                        </button>
+                    </div>
+					<div id="modal-field">
 					</div>
 				</div>
 			</div>

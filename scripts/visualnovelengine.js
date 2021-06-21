@@ -9,14 +9,30 @@ $(document).ready(function() {
     });
 
     $(".a-back").click(function() {
+        if(!maxSpeed)
+        {
         $(".arrows").css("pointer-events", "none");
         $("input.autoplay").css("pointer-events", "none");
+        }
+        else
+        {
+         $(".arrows").css("pointer-events", "auto");
+        $("input.autoplay").css("pointer-events", "auto");   
+        }
         backDialogue();
     });
 
     $(".a-next").click(function() {
+        if(!maxSpeed)
+        {
         $(".arrows").css("pointer-events", "none");
         $("input.autoplay").css("pointer-events", "none");
+        }
+        else
+        {
+         $(".arrows").css("pointer-events", "auto");
+        $("input.autoplay").css("pointer-events", "auto");   
+        }
         nextDialogue();
     });
 
@@ -44,7 +60,8 @@ var rend_S = document.getElementById('rend');
 var index = 0;
 var convIndex = 0;
 var speed = 21;
-
+var maxSpeed = false;
+var tempAutoFlag = false;
 $(".autoplay").click(function() {
 
 
@@ -63,6 +80,18 @@ $(".autoplay").click(function() {
 
 });
 
+ $("#speed").change(function () {
+        var speedVal = $("#speed").val();
+        if (speedVal != "MAX")
+            {
+                speed = 21 * speedVal;
+                maxSpeed = false;
+            }
+        else
+            {
+                maxSpeed = true;
+            }
+    });
 
 /*MODAL*/
 
@@ -71,6 +100,7 @@ var modal = document.getElementById("end_chap");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
@@ -83,6 +113,25 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+
+var modal_branch = document.getElementById("branch");
+
+var closeBranch = document.getElementsByClassName("closeBranch")[0];
+
+closeBranch.onclick = function() {
+    modal_branch.style.display = "none";
+    $(".arrows").css("pointer-events", "auto");
+    $("input.autoplay").prop("checked", tempAutoFlag);  
+}
+
+
+
+// Get the <span> element that closes the modal
+// When the user clicks on <span> (x), close the modal
+
+// When the user clicks anywhere outside of the modal, close it
+
 
 /*SCENE LOAD*/
 
@@ -130,7 +179,7 @@ function initialScene() {
                 spkBox = document.getElementById('char2');
                 $("#char-name2").show();
                 $("#char-name").hide();
-                $(".bubble").css("background-image", "linear-gradient(140deg, " + conversations[index]["hexcolor"] + " 50%, " + conversations[index]["hexcolor2"] + " 75%)");
+                $(".bubble").css("background", "linear-gradient(140deg, " + conversations[index]["hexcolor"] + " 50%, " + conversations[index]["hexcolor2"] + " 75%)");
                 $("#rend-a").removeClass("passive");
                 $("#rend-b").removeClass("passive");
                 $("#render_a").removeClass("active_rend");
@@ -291,6 +340,27 @@ function nextDialogue() {
            }
            
            */
+        
+        
+        if(conversations[index].hasOwnProperty('branch_flag'))
+            
+            {   if(conversations[index]["branch_flag"] == true)
+                {  
+                    modal_branch.style.display = "block";
+                    
+                    if($("input.autoplay").val() == true)
+                    {
+                    $("input.autoplay").prop("checked", false);
+                    tempAutoFlag = true;
+                    }
+                    
+                    $(".arrows").css("pointer-events", "none");
+                    $(".back").css("display", "none");
+                    return; 
+                }
+                
+                    
+            }
 
         if (parseInt(conversations[index]["numofchars"]) > 1) {
             switch (conversations[index]["activespeaker"]) {
@@ -302,7 +372,7 @@ function nextDialogue() {
                     $("#rend-b").addClass("passive");
                     $("#render_a").addClass("active_rend");
                     $("#render_b").removeClass("active_rend");
-                    $(".bubble").css("background", conversations[index]["hexcolor"]);
+                    $(".bubble").css("background-color", conversations[index]["hexcolor"]);
                     if (parseInt(conversations[index]["numofchars"]) > 1) {
                         $("#textbox").addClass("char-left").removeClass("char-right");
                     }
@@ -315,7 +385,7 @@ function nextDialogue() {
                     $("#rend-a").addClass("passive");
                     $("#render_b").addClass("active_rend");
                     $("#render_a").removeClass("active_rend");
-                    $(".bubble").css("background", conversations[index]["hexcolor"]);
+                    $(".bubble").css("background-color", conversations[index]["hexcolor"]);
                     if (parseInt(conversations[index]["numofchars"]) > 1) {
                         $("#textbox").removeClass("char-left").addClass("char-right");
                     }
@@ -346,7 +416,7 @@ function nextDialogue() {
             if (conversations[index]["activespeaker"] != "") {
                 spkBox = document.getElementById('char2');
                 $("#char-name2").show();
-                $(".bubble").css("background", conversations[index]["hexcolor"]);
+                $(".bubble").css("background-color", conversations[index]["hexcolor"]);
             } else {
                 $("#char-name2").hide();
             }
@@ -382,8 +452,15 @@ function nextDialogue() {
                 */
                 spkBox.innerHTML = conversations[index]["speaker"];
                 spkBox.style.opacity = 1;
+				
+				if(!maxSpeed)
+				{
                 typeWriter(conversations[index]["conline"]);
-
+				}
+				else
+				{
+					$("#textbox").html(conversations[index]["conline"]);
+				}
 
 
             } else {
@@ -394,8 +471,14 @@ function nextDialogue() {
                      },400);
                  */
                 spkBox.innerHTML = conversations[index]["speaker"];
+				if(!maxSpeed)
+				{
                 typeWriter(conversations[index]["conline"]);
-
+				}
+				else
+				{
+					$("#textbox").html(conversations[index]["conline"]);
+				}
 
 
             }
@@ -559,7 +642,7 @@ function backDialogue() {
                     $("#rend-b").addClass("passive");
                     $("#render_a").addClass("active_rend");
                     $("#render_b").removeClass("active_rend");
-                    $(".bubble").css("background", conversations[index]["hexcolor"]);
+                    $(".bubble").css("background-color", conversations[index]["hexcolor"]);
                     if (parseInt(conversations[index]["numofchars"]) > 1) {
                         $("#textbox").addClass("char-left").removeClass("char-right");
                     }
@@ -572,7 +655,7 @@ function backDialogue() {
                     $("#rend-a").addClass("passive");
                     $("#render_b").addClass("active_rend");
                     $("#render_a").removeClass("active_rend");
-                    $(".bubble").css("background", conversations[index]["hexcolor"]);
+                    $(".bubble").css("background-color", conversations[index]["hexcolor"]);
                     if (parseInt(conversations[index]["numofchars"]) > 1) {
                         $("#textbox").removeClass("char-left").addClass("char-right");
                     }
@@ -581,7 +664,7 @@ function backDialogue() {
                     spkBox = document.getElementById('char2');
                     $("#char-name2").show();
                     $("#char-name").hide();
-                    $(".bubble").css("background-image", "linear-gradient(140deg, " + conversations[index]["hexcolor"] + " 50%, " + conversations[index]["hexcolor2"] + " 75%)");
+                    $(".bubble").css("background", "linear-gradient(140deg, " + conversations[index]["hexcolor"] + " 50%, " + conversations[index]["hexcolor2"] + " 75%)");
                     $("#rend-a").removeClass("passive");
                     $("#rend-b").removeClass("passive");
                     $("#render_a").removeClass("active_rend");
@@ -603,7 +686,7 @@ function backDialogue() {
             if (conversations[index]["activespeaker"] != "") {
                 spkBox = document.getElementById('char2');
                 $("#char-name2").show();
-                $(".bubble").css("background", conversations[index]["hexcolor"]);
+                $(".bubble").css("background-color", conversations[index]["hexcolor"]);
             } else {
                 $("#char-name2").hide();
             }
@@ -626,13 +709,27 @@ function backDialogue() {
                 spkBox.style.opacity = 0;
                 spkBox.innerHTML = conversations[index]["speaker"];
                 spkBox.style.opacity = 1;
+				if(!maxSpeed)
+				{
                 typeWriter(conversations[index]["conline"]);
+				}
+				else
+				{
+					$("#textbox").html(conversations[index]["conline"]);
+				}
 
 
             } else {
                 spkBox.style.opacity = 1;
                 spkBox.innerHTML = conversations[index]["speaker"];
+				if(!maxSpeed)
+				{
                 typeWriter(conversations[index]["conline"]);
+				}
+				else
+				{
+					$("#textbox").html(conversations[index]["conline"]);
+				}
 
             }
 
@@ -797,11 +894,11 @@ async function autoTextPlayer() {
         if (($("input.autoplay").is(":checked"))) {
 
 
-            $("input.autoplay").css("pointer-events", "none");
+           // $("input.autoplay").css("pointer-events", "none");
             nextDialogue();
             setTimeout(function() {
 
-                $("input.autoplay").css("pointer-events", "auto");
+            //    $("input.autoplay").css("pointer-events", "auto");
             }, speed + conversations[index]["conline"].length * 20 + 2000);
 
 

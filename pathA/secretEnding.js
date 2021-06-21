@@ -572,13 +572,13 @@ var conversations = [
         "activespeaker": "charB",
         "speaker": "Tsumugi",
         "hexcolor": "#5A5475B",
-        "conline": "That's why, Natsume-kun. ",
+        "conline": "That's why, Natsume-kun.",
         "char2tag": "T8",
         "char1tag": "N3",
         "bg": "BG12"
     },
     {
-        "numofchars": 2,
+        "numofchars": 0,
         "activespeaker": "charB",
         "speaker": "Tsumugi",
         "hexcolor": "#5A5475B",
@@ -586,7 +586,7 @@ var conversations = [
         "bg": "CG5"
     },
     {
-        "numofchars": 2,
+        "numofchars": 0,
         "activespeaker": "charB",
         "speaker": "Tsumugi",
         "hexcolor": "#5A5475B",
@@ -594,7 +594,7 @@ var conversations = [
         "bg": "CG5"
     },
     {
-        "numofchars": 2,
+        "numofchars": 0,
         "activespeaker": "charB",
         "speaker": "Tsumugi",
         "hexcolor": "#5A5475B",

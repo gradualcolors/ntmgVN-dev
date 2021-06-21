@@ -125,6 +125,10 @@ body {
 	transition: opacity .5s ease-in-out;
 }
 
+input.autoplay {
+    z-index:999;
+}
+
 .handle img {
 	width: 100%;
 }
