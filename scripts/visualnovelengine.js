@@ -119,10 +119,13 @@ var modal_branch = document.getElementById("branch");
 
 var closeBranch = document.getElementsByClassName("closeBranch")[0];
 
-closeBranch.onclick = function() {
-    modal_branch.style.display = "none";
-    $(".arrows").css("pointer-events", "auto");
-    $("input.autoplay").prop("checked", tempAutoFlag);  
+if (typeof closeBranch != 'undefined')
+{
+    closeBranch.onclick = function() {
+        modal_branch.style.display = "none";
+        $(".arrows").css("pointer-events", "auto");
+        $("input.autoplay").prop("checked", tempAutoFlag);  
+    }
 }
 
 
