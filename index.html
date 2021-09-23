@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="stylesheet" type="text/css" href="css/site-interface.css" />
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+    var imageSrcs = [];
+    var bgs = ["../assets/homepage_slides/CG1_slide.png", "../assets/homepage_slides/CG2_slide.png","../assets/homepage_slides/CG3_slide.png","../assets/homepage_slides/CG4_slide.png","../assets/homepage_slides/CG5_slide.png","../assets/homepage_banner.png"];
+
+
+    Array.prototype.push.apply(imageSrcs, bgs);
+		var images = [];
+
+		preloadImages(imageSrcs, images, loadModels);
+
+		function preloadImages(srcs, imgs, callback) {
+		    var img;
+		    var remaining = srcs.length;
+		    for (var i = 0; i < srcs.length; i++) {
+		        img = new Image();
+		        img.onload = function() {
+		            --remaining;
+		            if (remaining <= 0) {
+		                callback();
+		            }
+		        };
+		        img.src = srcs[i];
+		        imgs.push(img);
+		    }
+		}
+
+		function loadModels() {
+		  console.log("Images loaded");
+		}
+
+    </script>
+    <script>
+		$( document ).ready(function() {
+        
+		$(".main_menu").click(function () {
+
+		$(".main_menu").toggleClass("open_menu close_menu");
+		$('.hide_menu').fadeToggle("slow", "linear");
+		$('.menu_overlay').toggleClass("menu_show");
+
+
+		});
+
+		$( ".cd" ).click(function() {
+		  $( "#credits_box" ).toggleClass("home_m_hide home_m_show");
+		});
+
+		 $( ".credit_back" ).click(function() {
+		  $( "#credits_box" ).toggleClass("home_m_hide home_m_show");
+		});
+
+
+
+		$( ".mp" ).click(function() {
+		  $( "#chapters_box" ).toggleClass("home_m_hide home_m_show");
+		});
+
+		 $( ".chapter_back" ).click(function() {
+		  $( "#chapters_box" ).toggleClass("home_m_hide home_m_show");
+		});
+
+
+		    $('.id').click(function() {
+
+		});
+
+		    $('.st').click(function() {
+		    $( "#story_log" ).toggleClass("home_m_hide home_m_show");
+
+		});
+
+		     $( ".story_back" ).click(function() {
+		  $( "#story_log" ).toggleClass("home_m_hide home_m_show");
+		});
+
+     /*   $(".arrows").one('click', function(e) {
+            var audio = document.getElementById('bgm');
+            audio.load();
+            audio.play();
+        });
+
+        const volume = document.querySelector("audio").volume; // 1
+
+         document.querySelector("audio").volume = 0.8;  // set volume to 50%
+
+*/
+            // this will disable dragging of all images
+          $("img").mousedown(function(e){
+               e.preventDefault()
+          });
+
+          // this will disable right-click on all images
+      /*    $("body").on("contextmenu",function(e){
+               return false;
+
+		});*/
+
+		});
+
+    </script>
+
+    <title>Natsumugi VN</title>
+</head>
+
+<body>
+    <div style="width: 1300px;margin: auto;"><h1 data-brackets-id="5155">Natsumugi VN</h1></div>
+    <div id="background">
+        <div class="gacha_div">
+		<!--<div id="location">
+                <span>Game Research Club</span>
+            </div>-->
+
+            <div id="story_log" class="home_m home_m_hide">
+                <div class="back_button story_back"></div>
+                <div id="story_content">
+                    <div class="story">
+                        <div class="story_title">Story Log</div>
+                        <div>
+                            <div id="story_div"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="credits_box" class="home_m home_m_hide">
+                <div class="back_button credit_back"></div>
+                <div id="credit_content">
+                    <div class="credit">
+                        <div class="credit_title">Credits</div>
+
+                        <p></p>
+  
+                    </div>
+                </div>
+            </div>
+
+     			<div id="gacha_title">
+			<!--	<img src="/assets/swimtitle.png" />-->
+			</div>
+            <div id="slider_title"><h4>Preview</h4></div>
+			<div id="scroll">
+				<div id="gacha_sliders">
+					<img class="slide-icons" onclick="openModal();currentSlide(1)" src="assets/homepage_slides/CG1_slide_icon.png" />
+                    <img class="slide-icons" onclick="openModal();currentSlide(2)" src="assets/homepage_slides/CG2_slide_icon.png" />
+                    <img class="slide-icons" onclick="openModal();currentSlide(3)" src="assets/homepage_slides/CG3_slide_icon.png" />
+                    <img class="slide-icons" onclick="openModal();currentSlide(4)" src="assets/homepage_slides/CG4_slide_icon.png" />
+                    <img class="slide-icons" onclick="openModal();currentSlide(5)" src="assets/homepage_slides/CG5_slide_icon.png" />
+				</div>
+			</div>
+			<div class="arch"></div>
+			<div id="gacha_logo">
+				<img src="Logo.png" />
+			</div>
+			<div id="info-box">
+				<div id="date-info">
+					<div class="info-bg">Date of Gacha:</div>
+					<div class="info">2021/09/23</div>
+				</div>
+				<div id="char-info">
+					<div class="info-bg">Characters:</div>
+					<div class="info">
+						<div style="margin-left:35px;">
+							<img style="margin-top: -15px" alt="Tsumugi" src="assets/tsumugi_head.png" />
+							<img style="margin-top: -15px" alt="Natsume" src="assets/natsume_head.png" />
+						</div>
+					</div>
+				</div>
+				<div id="button-field">
+					<button class="button a_home"> <span>Credits</span>
+					</button>
+					<button class="button b_home"> <span><a href="prologue/index.html">Begin</a></span>
+					</button>
+				</div>
+			</div>
+            <div class="gacha_banner">
+            </div>
+		<!--<div class="music_button" onclick="javascript:toggleSound();">
+				<div class="speaker"></div>
+			</div>-->	
+			<audio id="bgm" autoplay preload controls loop style="display: none;">
+				<source src="Splash_Pool.ogg" type="audio/ogg" />
+			</audio>
+
+		</div>
+		<div id="menu_bar" style="width: 900px;height:200px;margin-top: -100px;"></div>
+		<div id="side_wrap">
+			<div id="sides">
+				<img style="float:left;" src="" />
+				<img style="float:right;" src="">
+			</div>
+		</div>
+		
+            <div class="menu_overlay"></div>
+
+            <div id="homepage_slider" class="modal_home">
+                <span class="slider_close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+              
+                  <div class="mySlides">
+                    <div class="numbertext">1 / 5 - @dogboylover</div>
+                    <img src="assets/homepage_slides/CG1_slide.png" alt="(That’s why, until the day I die, I want to be kept spellbound by you.)">
+                  </div>
+              
+                  <div class="mySlides">
+                    <div class="numbertext">2 / 5 - @kingkrcoo</div>
+                    <img src="assets/homepage_slides/CG2_slide.png" alt="(It's taken me this long to realise that I've found my own family, that this is what I'd always wanted as a child. Have I treasured our bonds the way I should have?)">
+                  </div>
+              
+                  <div class="mySlides">
+                    <div class="numbertext">3 / 5 - @Edlinklover</div>
+                    <img src="assets/homepage_slides/CG3_slide.png" alt="(That's why, Natsume-kun... Until it sets us aflame, will you dance with me?)">
+                  </div>
+                  
+                  <div class="mySlides">
+                    <div class="numbertext">4 / 5 - @kingkrcoo</div>
+                    <img src="assets/homepage_slides/CG4_slide.png" alt="(After all, I've found my own happiness now.)">
+                  </div>
+
+                  <div class="mySlides">
+                    <div class="numbertext">5 / 5 - @eq8_eq</div>
+                    <img src="assets/homepage_slides/CG5_slide.png" alt="So let's sing and dance like we used to, in the days before we all went to Hell.">
+                  </div>
+                  
+                  <a class="prev_slide" onclick="plusSlides(-1)">&#10094;</a>
+                  <a class="next_slide" onclick="plusSlides(1)">&#10095;</a>
+              
+                  <div class="caption-container">
+                    <p id="caption"></p>
+                  </div>
+        
+                </div>
+              </div>
+        </div>
+  <!--      <div id="menu_bar">
+            <div class="hide_menu">
+                <div class="menutips">
+                    <img class="st" src="../assets/story_menu.png">	<span class="menutext menus">Story Log</span>
+                </div>
+                <div class="menutips">
+                    <img class="cd" src="../assets/card_menu.png">	<span class="menutext menus">Credits</span>
+                </div>
+                <div class="menutips">
+                    <img class="id" onclick="javascript:toggleSound();" src="../assets/idol_menu.png">	<span class="menutext menus">Music Toggle</span>
+                    <audio id="bgm" preload controls volume="0.2" loop style="display: none;">
+                        <source src="Yumenosaki%20Academy.mp3" type="audio/mpeg">
+                    </audio>
+
+
+                </div>
+                <div class="menutips">
+                    <img class="mp" src="../assets/map_menu.png">	<span class="menutext menub">Chapters</span>
+                </div>
+                <div class="menutips">
+                    <a href="/">
+                        <img class="hm menub" src="../assets/home_menu.png">
+                    </a>	<span class="menutext menub">Home</span>
+                </div>
+            </div>
+        </div>
+        <div class="main_menu open_menu"></div>-->
+        <div id="side_wrap">
+            <div id="sides">
+              <!--  <img style="float:left;" src="../assets/charBsume-chibi.png" />
+                <img style="float:right;" src="../assets/subaru-chibi.png">-->
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+		function toggleSound() {
+		  var audioElem = document.getElementById('bgm');
+		  if (audioElem.paused)
+		    audioElem.play();
+		  else
+		    audioElem.pause();
+		}
+    </script>
+    <script>
+        function openModal() {
+          document.getElementById("homepage_slider").style.display = "block";
+        }
+        
+        function closeModal() {
+          document.getElementById("homepage_slider").style.display = "none";
+        }
+        
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n); 
+        }
+        
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          var captionText = document.getElementById("caption");
+          if (n > slides.length) {slideIndex = 1}
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+              slides[i].style.display = "none";
+          }
+          slides[slideIndex-1].style.display = "block";
+         // dots[slideIndex-1].className += " active";
+          captionText.innerHTML = slides[slideIndex-1].lastElementChild.alt;
+        }
+        </script>
+</body>
+
+</html>
